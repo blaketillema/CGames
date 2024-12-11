@@ -1,21 +1,20 @@
-#ifndef PONG_PADDLE
-    #define PONG_PADDLE
-    #include <box2d/box2d.h>
-    #include <raylib.h>
+#pragma once
 
-    typedef struct Controls {
-        int up;
-        int down;
-    } Controls;
+#include <box2d/box2d.h>
+#include <raylib.h>
 
-    typedef struct Paddle {
-        b2BodyId bodyId;
-        b2ShapeId shapeId;
-        Texture* texture;
-        Controls controls;
-    } Paddle;
+typedef struct Controls {
+    int up;
+    int down;
+} Controls;
 
-    Paddle CreatePaddle(b2WorldId worldId, int x, int y, Texture2D* texture);
-    void UpdatePaddle(Paddle* paddle, int lowerBound, int upperBound);
-    void DrawPaddle(Paddle* paddle);
-#endif
+typedef struct Paddle {
+    b2BodyId bodyId;
+    b2ShapeId shapeId;
+    Texture* texture;
+    Controls controls;
+} Paddle;
+
+Paddle CreatePaddle(b2WorldId worldId, int x, int y, Texture2D* texture);
+void UpdatePaddle(Paddle* paddle, int lowerBound, int upperBound);
+void DrawPaddle(Paddle* paddle);
